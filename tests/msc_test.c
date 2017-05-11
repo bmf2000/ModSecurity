@@ -862,7 +862,7 @@ int main(int argc, const char * const argv[])
                 }
                 /* Only store those collections that changed. */
                 if (apr_table_get(g_msr->collections_dirty, te[n].key)) {
-                    int x = collection_store(g_msr, col);
+                    int x = collection_store(g_msr, col, te[n].key);
 
                     if (g_msr->txcfg->debuglog_level >= 9) {
                         msr_log(g_msr, 9, "Stored collection: %s (%d)", te[n].key, x);
